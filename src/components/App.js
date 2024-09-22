@@ -4,7 +4,7 @@ import { OrbitControls, Stars, Line } from '@react-three/drei';
 import { Vector3 } from 'three';
 import { XR, XROrigin, TeleportTarget, createXRStore } from '@react-three/xr';
 import Node from './node';
-import cluster from './cluster.json'; // Import the JSON data
+import cluster from '../data/cluster.json'; // Import the JSON data
 
 // Create XR store for VR/AR functionality
 const store = createXRStore({
