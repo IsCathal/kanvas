@@ -1,5 +1,6 @@
 {
   "name": "kanvas",
+  "homepage": "https://isCathal.github.io/kanvas",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +18,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -45,6 +48,7 @@
     "@types/three": "^0.168.0",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.36.1",
+    "gh-pages": "^6.1.1",
     "globals": "^15.9.0"
   }
 }

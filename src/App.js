@@ -1,10 +1,16 @@
-// src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars, Line } from '@react-three/drei';
+import { Vector3 } from 'three';
+import { XR, XROrigin, TeleportTarget, createXRStore } from '@react-three/xr';
 import Node from './node';
 import cluster from './cluster.json'; // Import the JSON data
 
+// Create XR store for VR/AR functionality
+const store = createXRStore({
+  hand: { teleportPointer: true },
+  controller: { teleportPointer: true },
+});
 
 function Scene() {
   const { nodes, edges } = cluster;
@@ -20,8 +26,6 @@ function Scene() {
 
       {/* Stars for visual effect */}
       <Stars />
-
-      {/* Axes Helper */}
 
       {/* Render Nodes */}
       {nodes.map(node => (
@@ -60,10 +64,28 @@ function Scene() {
 }
 
 function App() {
+  const [position, setPosition] = useState(new Vector3());
+
   return (
-    <Canvas style={{ width: '100vw', height: '100vh' }}>
-      <Scene />
-    </Canvas>
+    <>
+      {/* Buttons for entering VR and AR */}
+      <button onClick={() => store.enterVR()}>Enter VR</button>
+      <button onClick={() => store.enterAR()}>Enter AR</button>
+
+      {/* Canvas for rendering the 3D scene */}
+      <Canvas style={{ width: '100vw', height: '100vh' }}>
+        <XR store={store}>
+          <ambientLight />
+          <XROrigin position={position} />
+          <Scene />
+          <TeleportTarget onTeleport={setPosition}>
+            <mesh scale={[10, 1, 10]} position={[0, -0.5, 0]}>
+              <meshBasicMaterial color="green" />
+            </mesh>
+          </TeleportTarget>
+        </XR>
+      </Canvas>
+    </>
   );
 }
 
