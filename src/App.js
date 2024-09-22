@@ -1,46 +1,69 @@
-// App.js
+// src/App.js
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Stars } from '@react-three/drei';
+import { OrbitControls, Stars, Line } from '@react-three/drei';
 import Node from './node';
-import Edge from './edge';
-import { nodes, edges } from './data';
-import './App.css';
-import { div } from 'three/webgpu';
+import cluster from './cluster.json'; // Import the JSON data
 
-function App() {
-  const nodeMap = Object.fromEntries(nodes.map((node) => [node.id, node]));
 
-  return (
-    < div className="my-canvas">
-      <Canvas  >
-        <Scene nodeMap={nodeMap} />
-     </Canvas>
-    </div>
-  );
-}
+function Scene() {
+  const { nodes, edges } = cluster;
 
-function Scene({ nodeMap }) {
+  // Create a map for easy access to node positions by id
+  const nodeMap = Object.fromEntries(nodes.map(node => [node.id, node]));
+
   return (
     <>
+      {/* Lighting */}
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
+
+      {/* Stars for visual effect */}
       <Stars />
 
-      {Object.values(nodeMap).map((node) => (
-        <Node key={node.id} position={node.position} />
-      ))}
+      {/* Axes Helper */}
 
-      {edges.map((edge, index) => (
-        <Edge
-          key={index}
-          start={nodeMap[edge.source].position}
-          end={nodeMap[edge.target].position}
+      {/* Render Nodes */}
+      {nodes.map(node => (
+        <Node
+          key={node.id}
+          position={[node.x, node.y, node.z]}
+          message={node.message}
+          color={node.color}
         />
       ))}
 
+      {/* Render Edges */}
+      {edges.map((edge, index) => {
+        const sourceNode = nodeMap[edge.source];
+        const targetNode = nodeMap[edge.target];
+
+        if (!sourceNode || !targetNode) return null;
+
+        return (
+          <Line
+            key={index}
+            points={[
+              [sourceNode.x, sourceNode.y, sourceNode.z],
+              [targetNode.x, targetNode.y, targetNode.z]
+            ]}
+            color="#ffffff"
+            lineWidth={1}
+          />
+        );
+      })}
+
+      {/* Controls to orbit the scene */}
       <OrbitControls />
     </>
+  );
+}
+
+function App() {
+  return (
+    <Canvas style={{ width: '100vw', height: '100vh' }}>
+      <Scene />
+    </Canvas>
   );
 }
 
