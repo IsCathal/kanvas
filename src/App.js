@@ -5,14 +5,18 @@ import { OrbitControls, Stars } from '@react-three/drei';
 import Node from './node';
 import Edge from './edge';
 import { nodes, edges } from './data';
+import './App.css';
+import { div } from 'three/webgpu';
 
 function App() {
   const nodeMap = Object.fromEntries(nodes.map((node) => [node.id, node]));
 
   return (
-    <Canvas style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
-      <Scene nodeMap={nodeMap} />
-    </Canvas>
+    < div className="my-canvas">
+      <Canvas  >
+        <Scene nodeMap={nodeMap} />
+     </Canvas>
+    </div>
   );
 }
 
