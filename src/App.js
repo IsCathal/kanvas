@@ -10,7 +10,7 @@ function App() {
   const nodeMap = Object.fromEntries(nodes.map((node) => [node.id, node]));
 
   return (
-    <Canvas>
+    <Canvas style={{ width: '100vw', height: '100vh', margin: 0, padding: 0 }}>
       <Scene nodeMap={nodeMap} />
     </Canvas>
   );
