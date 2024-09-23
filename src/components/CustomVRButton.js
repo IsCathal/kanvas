@@ -1,6 +1,6 @@
 // src/CustomVRButton.js
 import React from 'react';
-import store from './store';
+import store from '../context/store';
 
 function CustomVRButton() {
   const handleEnterVR = () => {

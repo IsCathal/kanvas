@@ -1,70 +1,105 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cluster Graph VR Project - Kanvas
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+**Kanvas** is a Virtual Reality (VR) project that leverages 3D rendering using React Three Fiber. It focuses on visualizing and interacting with cluster graphs in a virtual environment. This project integrates several cutting-edge libraries to render 3D models, manage VR experiences, and handle interactions in a seamless and performant manner.
 
-### `npm start`
+## Features
+- **3D Rendering**: Built using `react-three-fiber` to easily create and manipulate 3D scenes.
+- **VR Support**: Leverages `@react-three/xr` for VR interaction, providing an immersive experience.
+- **Cluster Graph Visualization**: Enables the visualization of complex data structures, such as cluster graphs, in a 3D space.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To get started with the project, follow the steps below:
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v16 or above)
+- npm (v8 or above)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    \`\`\`bash
+    git clone https://github.com/isCathal/kanvas.git
+    cd kanvas
+    \`\`\`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install the dependencies:
 
-### `npm run eject`
+    \`\`\`bash
+    npm install
+    \`\`\`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Running the Project
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To start the project in development mode, use:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+\`\`\`bash
+npm start
+\`\`\`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This will start a local development server on \`http://localhost:3000\`.
 
-## Learn More
+### Building for Production
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To create a production build of the project, use:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+\`\`\`bash
+npm run build
+\`\`\`
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+This will create an optimized production build in the \`build\` directory.
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The project can be deployed using GitHub Pages. To deploy, run:
 
-### `npm run build` fails to minify
+\`\`\`bash
+npm run deploy
+\`\`\`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This will deploy the app to the [kanvas homepage](https://isCathal.github.io/kanvas).
+
+## Interesting Packages
+
+This project uses several interesting packages that enhance its functionality. Here are the top three:
+
+1. **@react-three/fiber**  
+   A powerful React renderer for Three.js, making it easier to build 3D applications using React components.  
+   Learn more: [@react-three/fiber documentation](https://docs.pmnd.rs/react-three-fiber/getting-started/introduction)
+
+2. **@react-three/xr**  
+   A library that provides VR/AR interaction support for React Three Fiber projects, allowing you to create immersive 3D and VR experiences with minimal setup.  
+   Learn more: [@react-three/xr documentation](https://docs.pmnd.rs/react-xr/getting-started/introduction)
+
+3. **@react-three/drei**  
+   A collection of useful helpers for React Three Fiber, including cameras, controls, and loaders that help simplify building 3D scenes.  
+   Learn more: [@react-three/drei documentation](https://docs.pmnd.rs/drei/introduction)
+
+## Testing
+
+To run the tests for the project, use:
+
+\`\`\`bash
+npm test
+\`\`\`
+
+## ESLint
+
+To check the project for code issues using ESLint, run:
+
+\`\`\`bash
+npm run lint
+\`\`\`
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+Enjoy building with **Kanvas** and exploring the world of VR and cluster graph visualization!
