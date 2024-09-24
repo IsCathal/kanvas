@@ -5,12 +5,8 @@ import { Vector3 } from 'three';
 import { XR, XROrigin, TeleportTarget, createXRStore } from '@react-three/xr';
 import Node from './node';
 import cluster from '../data/cluster.json'; // Import the JSON data
+import store from '../context/store';
 
-// Create XR store for VR/AR functionality
-const store = createXRStore({
-  hand: { teleportPointer: true },
-  controller: { teleportPointer: true },
-});
 
 function Scene() {
   const { nodes, edges } = cluster;
