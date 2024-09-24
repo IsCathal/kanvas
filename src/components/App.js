@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stars, Line } from '@react-three/drei';
 import { Vector3 } from 'three';
-import { XR, XROrigin, TeleportTarget, createXRStore } from '@react-three/xr';
+import { XR, XROrigin, TeleportTarget } from '@react-three/xr';
 import Node from './node';
 import cluster from '../data/cluster.json'; // Import the JSON data
 import store from '../context/store';
@@ -66,8 +66,6 @@ function App() {
     <>
       {/* Buttons for entering VR and AR */}
       <button onClick={() => store.enterVR()}>Enter VR</button>
-      <button onClick={() => store.enterAR()}>Enter AR</button>
-
       {/* Canvas for rendering the 3D scene */}
       <Canvas style={{ width: '100vw', height: '100vh' }}>
         <XR store={store}>
